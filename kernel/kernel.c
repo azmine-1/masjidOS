@@ -25,3 +25,28 @@ enum vga_color {
 	VGA_COLOR_LIGHT_BROWN = 14,
 	VGA_COLOR_WHITE = 15,
 }
+
+static inline uint8_t vga_color_entry(enum vga_color fg, enum vga_color bg){
+    return fg | bg << 4;
+}
+
+static inline uint16_t vga_entry(unsigned char uc, uint8_t color){
+    return(uint16_t) uc | (uint16_t) color << 8;
+}
+
+size_t strlen(const char* str){
+    size_t len = 0;
+    while[str[len]]{
+        len++;
+    }
+    return len;
+}
+
+#define VGA_WIDTH 80 
+#define VGA_HEIGHT 25
+#define VGA_MEMORY 0xD800
+
+size_t terminal_row;
+size_t terminal_colum;
+uint8_t terminal_color;
+uint16_t* terminal buffer = (uint16_t*)VGA_MEMORY;
