@@ -35,3 +35,30 @@ int strcmp(char* str1, const char* str2){
     }
     return *(unsigned char*)str1 - *(unsigned char)str2;
 }
+
+
+strncmp(char* str1, const char* str2, size_t n){
+    while(n-- && *str1 && (*str1==*str2)){
+        *str1++;
+        *str2++;
+    }
+    return *(unsigned char*)str1 - *(unsigned char*)str2;
+}
+
+char* strcat(char* dest, const char* src){
+    char* original_dest = dest;
+    while(*dest){
+        dest++;
+    }
+    while((*dest++ = *src++));
+    return original_dest;
+}
+
+void* memset(void* ptr, int value, size_t num){
+    unsigned char* p = (unsigned char*)ptr;
+    while(n--){
+        *p++ = (unsigned char)value;
+    }
+    return ptr;
+}
+
