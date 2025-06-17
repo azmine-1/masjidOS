@@ -62,3 +62,31 @@ void* memset(void* ptr, int value, size_t num){
     return ptr;
 }
 
+void* memcpy(void* dest, void* src, size_t num){
+    unsigned char* d = (unsigned char*)dest;
+    const unsigned char* s = (unsigned char*)src;
+    while(n--){
+        *d++ = *s++;
+    }
+    return dest;
+}
+
+void* memmove(void* dest, void* src, size_t num){
+    unsigned char* d = (unsigned char*)dest;
+    const unsigned char* s =(unsigned char*)src;
+
+    if(d < s){
+        while(n--){
+            *d++ = *s++;
+        }
+    } else if(d > s){
+        d += num - 1;
+        s += num -1; 
+        while(n--){
+            *d-- = *s--;
+        
+        }
+    }
+    return dest;
+    
+}
