@@ -1,7 +1,7 @@
 #include "lib/stdio.h"
 #include "lib/string.h"
+#include "stdlib.h"
 
-/* Hardware text mode color constants */
 enum vga_color {
     VGA_COLOR_BLACK = 0,
     VGA_COLOR_BLUE = 1,
@@ -68,7 +68,7 @@ void terminal_scroll(void) {
         }
     }
     
-    /* Clear the last row */
+    
     for (size_t x = 0; x < VGA_WIDTH; x++) {
         const size_t index = (VGA_HEIGHT - 1) * VGA_WIDTH + x;
         terminal_buffer[index] = vga_entry(' ', terminal_color);
